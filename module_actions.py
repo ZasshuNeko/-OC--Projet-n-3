@@ -5,11 +5,35 @@
 
 import sys
 import os
+import pygame
+from pygame.locals import *
+import random
 
-print("Ce sont les actions")
 
-#Créer l'inventaire et l'afficher
-def inv_mod(map_back, pos_top, pos_left, item_num):
-	nop = map_back
+#Ramène la position de macgyver / Give a position of Macgyver
+def pos_token(dict_map,symbol):
+	for cle,valeur in dict_map.items():
+		if valeur == symbol:
+			pos_character = cle
+			break
+	return pos_character
+#Dépose aléatoirement un item
+def rand_item(liste_cle):
+	int_cle = random.randint(0,3)
+	val_in = True
+	while val_in == True:
+		int_cle = random.randint(0,3)
+		int_cle = str(int_cle)
+		val_in = int_cle in liste_cle.values()
 
-#Déplacement
+	return int_cle
+
+def liste_item(map_select):
+	down_item = []
+	for i, item_liste in enumerate(map_select):
+		if item_liste.isdecimal() == True:
+			down_item.append(item_liste)
+	return down_item
+
+
+

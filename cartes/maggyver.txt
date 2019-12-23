@@ -1,11 +1,11 @@
 OOOOOOOOOOOOOOO
-O  O    O     O
+O IO    O     O
 O  . OO       O
 O  O O   X    O
 O  OOOOOO,OOOOO
-O  O O       EU
+O  .IO       EU
 O  OOOOOO,OOOOO
-O  O          O
+O  O         IO
 O  O OOOOOOOOOO
-O  .          O
+O  .         IO
 OOOOOOOOOOOOOOO
