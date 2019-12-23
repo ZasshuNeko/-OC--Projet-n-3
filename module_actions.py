@@ -17,16 +17,6 @@ def pos_token(dict_map,symbol):
 			pos_character = cle
 			break
 	return pos_character
-#Dépose aléatoirement un item
-def rand_item(liste_cle):
-	int_cle = random.randint(0,3)
-	val_in = True
-	while val_in == True:
-		int_cle = random.randint(0,3)
-		int_cle = str(int_cle)
-		val_in = int_cle in liste_cle.values()
-
-	return int_cle
 
 def liste_item(map_select):
 	down_item = []

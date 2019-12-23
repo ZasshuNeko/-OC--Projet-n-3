@@ -9,20 +9,21 @@ import os
 import pygame
 from pygame.locals import *
 from module_actions import *
-from labyrinthe import *
-from cartes import *
+from Class_Maze import *
+from Class_Items import *
+from Class_Personnage import *
 from copy import copy, deepcopy
 
 def main():
 	#Constants
-	DISPLAY_WIDTH = 650
-	DISPLAY_HEIGHT = 680
-	DISPLAY_SIZE = (DISPLAY_WIDTH, DISPLAY_HEIGHT)
+	display_width = 650
+	display_height = 680
+	display_size = (display_width, display_height)
 	img_size = 40
 	token_win = None
 	#Initialization
 	pygame.init()
-	screen = pygame.display.set_mode(DISPLAY_SIZE)
+	screen = pygame.display.set_mode(display_size)
 	pygame.display.set_caption('MacGyver') #Windows name
 	#Fond de l'écran chargé / Background of the loaded screen
 	background = pygame.Surface(screen.get_size())
@@ -36,11 +37,11 @@ def main():
 	text_pos.centerx = background.get_rect().centerx
 	background.blit(text,text_pos)
 	#Création de la map / creation of the map
-	maze_init = maze() #initialisation labyrinthe
-	item_init = item(maze_init.listing_item,maze_init.maze_map) #Initialisation items
+	maze_init = Maze() #initialisation labyrinthe
+	item_init = Item(maze_init.listing_item,maze_init.maze_map) #Initialisation items
 	maze_init.creating_map(screen) #Création de la map
 	item_init.creating_item(screen,item_search) # Création de la liste d'item à chercher
-	macgyver = personnage(maze_init.maze_map,"ressources/MacGyver-big.png", img_size) #Intialisation du personnage
+	macgyver = Personnage(maze_init.maze_map,"ressources/MacGyver-big.png", img_size) #Intialisation du personnage
 	#Afficher sur l'écran / Show on screen
 	screen.blit(background,(0,0))
 	pygame.display.flip()
@@ -56,7 +57,7 @@ def main():
 		macgyver.moving() # mise à jour de la position / update
 		item_init.keep_item(item_search, macgyver.rect) #On vérifie que le personnage ne récupère pas l'item
 		screen.blit(background,(0,0))#on met à jour l'affichage
-		item_init.inventory(screen,item_search,item_init.inventory_max_pos(),img_size)#On met à jour l'inventaire 
+		item_init.inventory(screen,item_search,img_size)#On met à jour l'inventaire 
 		maze_init.creating_map(screen)#On met à jour le labyrinthe
 		item_init.creating_item(screen,item_search)#mise à jour des items
 		macgyver.draw(screen)#Affichage du personnage
