@@ -97,7 +97,7 @@ def creating_dictionary(liste_map):
 		random_item = random.choice(list(dict_floor.keys()))
 		select_choice = random_item in liste_cle.keys()
 		while select_choice == True:
-			random_item = random.choice(dict_map.keys())
+			random_item = random.choice(dict_floor.keys())
 			select_choice = random_item in liste_cle.keys()
 		liste_cle[random_item] = str(x)
 		x += 1	
