@@ -1,6 +1,7 @@
 # -*-coding:Utf-8 -*
 
-#Fichier contenant la class item, cette dernière permet de gérer l'initialisation des items, leur ramassage et leur intentaire.
+#Fichier contenant la class item, cette dernière permet de gérer l'initialisation des items, leur ramassage et leur intentaire
+#File containing the item class, which manages the initialization of items, their collection and their intention.
 
 import sys
 import os
@@ -11,7 +12,6 @@ from Class_Maze import *
 from Class_Personnage import *
 
 class Item:
-	#Classe gérant les items à ramasser
 
 	def __init__(self,listing_item,dictionary_map):
 		self.dictionary = dictionary_map

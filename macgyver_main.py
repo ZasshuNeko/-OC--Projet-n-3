@@ -2,6 +2,8 @@
 
 """Ce fichier contient le code principal du jeu.
 Ce sera lui qu'on lancera pour charger le jeu.
+This file contains the main code of the game.
+It will be him that we launch to load the game.
 """
 
 import sys
@@ -55,19 +57,19 @@ def main():
 					return
 			macgyver.keys_event(event) # On récupère les events / we keep the event
 		macgyver.moving() # mise à jour de la position / update
-		item_init.keep_item(item_search, macgyver.rect) #On vérifie que le personnage ne récupère pas l'item
-		screen.blit(background,(0,0))#on met à jour l'affichage
-		item_init.inventory(screen,item_search,img_size)#On met à jour l'inventaire 
-		maze_init.creating_map(screen)#On met à jour le labyrinthe
-		item_init.creating_item(screen,item_search)#mise à jour des items
-		macgyver.draw(screen)#Affichage du personnage
-		pygame.display.update()#Mise à jour de l'affichage
+		item_init.keep_item(item_search, macgyver.rect) #On vérifie que le personnage ne récupère pas l'item / We check that the character does not recover the item
+		screen.blit(background,(0,0))#on met à jour l'affichage / Display update
+		item_init.inventory(screen,item_search,img_size)#On met à jour l'inventaire / Inventory update
+		maze_init.creating_map(screen)#On met à jour le labyrinthe / Maze update
+		item_init.creating_item(screen,item_search)#mise à jour des items / Items update
+		macgyver.draw(screen)#Affichage du personnage / charactere display
+		pygame.display.update()#Mise à jour de l'affichage / display update
 
-		token_win = macgyver.game_over(item_search,token_win,screen)#Vérification si partie gagné ou perdu
-		pygame.display.update()#Mise à jour de l'affichage
+		token_win = macgyver.game_over(item_search,token_win,screen)#Vérification si partie gagné ou perdu / check if the game is won or lost
+		pygame.display.update()#Mise à jour de l'affichage / Display update
 
 		if token_win != None:
-			return #fin du programme
+			return #fin du programme / End prog
 
 if __name__=='__main__' : main()
 

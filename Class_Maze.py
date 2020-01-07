@@ -1,6 +1,6 @@
 # -*-coding:Utf-8 -*
 
-"""Ce fichier contient le module qui ramène le labyrinthe
+"""Ce fichier contient le module qui gère la class labyrinthe
 """
 
 import sys
@@ -20,11 +20,11 @@ class Maze:
 		for nom_fichier in os.listdir("cartes"):
 			if nom_fichier.endswith(".txt"):
 				chemin = os.path.join("cartes", nom_fichier)
-				nom_carte = nom_fichier[:-4].lower() #Passer de -3 à -4 pour retirer le point
+				nom_carte = nom_fichier[:-4].lower() 
 				with open(chemin, "r") as fichier:
 					contenu = fichier.read()
 					self.nom = nom_carte
-					self.labyrinthe = list(contenu) #Module qui ramène la chaine de carractère de la carte
+					self.labyrinthe = list(contenu)
 					Carte_Save = [self.labyrinthe,self.nom]
 					if not(cartes):
 						cartes = [Carte_Save]
